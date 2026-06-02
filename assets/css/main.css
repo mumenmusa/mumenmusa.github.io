@@ -45,13 +45,24 @@ header.site nav a::before { content: "/"; color: var(--rule); margin-right: 2px;
 /* Intro */
 .intro { color: var(--ink-soft); font-style: italic; margin-bottom: 56px; max-width: 480px; font-size: 16px; font-family: "Iowan Old Style", Charter, Georgia, ui-serif, serif; }
 
-/* Post index */
+/* Post index — summary list */
 .post-index { list-style: none; padding: 0; margin: 0 0 72px 0; }
-.post-index li { padding: 14px 0; border-bottom: 1px dashed var(--rule); display: grid; grid-template-columns: 130px 1fr; gap: 20px; align-items: baseline; }
-.post-index li:last-child { border-bottom: none; }
-.post-index .date { font-size: 12.5px; color: var(--ink-soft); letter-spacing: -0.01em; }
-.post-index a { color: var(--ink); text-decoration: none; font-weight: 500; font-size: 18px; font-family: "Iowan Old Style", Charter, Georgia, ui-serif, serif; }
-.post-index a:hover { color: var(--accent); text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 4px; }
+.post-index li.post-summary { padding: 28px 0 32px; border-bottom: 1px dashed var(--rule); }
+.post-index li.post-summary:first-child { padding-top: 4px; }
+.post-index li.post-summary:last-child { border-bottom: none; }
+
+.post-summary-title { font-size: 24px; line-height: 1.25; margin: 0 0 6px 0; font-weight: 600; font-family: "Iowan Old Style", Charter, Georgia, ui-serif, serif; }
+.post-summary-title::before { display: none; } /* override article h2::before */
+.post-summary-title a { color: var(--ink); text-decoration: none; }
+.post-summary-title a:hover { color: var(--accent); text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 4px; }
+
+.post-summary-date { font-size: 12.5px; color: var(--ink-soft); letter-spacing: -0.01em; margin-bottom: 14px; }
+.post-summary-date::before { content: "// "; color: var(--accent); }
+
+.post-summary-text { color: var(--ink-soft); margin: 0 0 14px 0; font-size: 16.5px; line-height: 1.65; font-family: "Iowan Old Style", Charter, Georgia, ui-serif, serif; }
+
+.post-summary-more { font-size: 12.5px; color: var(--ink-soft); text-decoration: none; }
+.post-summary-more:hover { color: var(--accent); }
 
 /* Article */
 article h1 { font-size: 32px; line-height: 1.25; margin: 0 0 6px 0; font-weight: 600; font-family: "Iowan Old Style", Charter, Georgia, ui-serif, serif; }
@@ -113,7 +124,7 @@ footer.site a:hover { color: var(--accent); }
   .wrap { padding: 40px 20px 80px; }
   body { font-size: 17px; }
   article h1 { font-size: 26px; }
-  .post-index li { grid-template-columns: 100px 1fr; gap: 12px; }
-  .post-index .date { font-size: 11.5px; }
+  .post-summary-title { font-size: 21px; }
+  .post-summary-text { font-size: 15.5px; }
   header.site nav a { margin-left: 12px; }
 }

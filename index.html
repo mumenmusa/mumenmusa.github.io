@@ -5,9 +5,17 @@ layout: default
 
 <ul class="post-index">
   {% for post in site.posts %}
-  <li>
-    <span class="date">{{ post.date | date: "%Y-%m-%d" }}</span>
-    <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+  <li class="post-summary">
+    <h2 class="post-summary-title"><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h2>
+    <div class="post-summary-date">{{ post.date | date: "%Y-%m-%d" }}</div>
+    <p class="post-summary-text">
+      {%- if post.summary -%}
+        {{ post.summary }}
+      {%- else -%}
+        {{ post.excerpt | strip_html | truncatewords: 50 }}
+      {%- endif -%}
+    </p>
+    <a class="post-summary-more" href="{{ post.url | relative_url }}">read more →</a>
   </li>
   {% endfor %}
 </ul>

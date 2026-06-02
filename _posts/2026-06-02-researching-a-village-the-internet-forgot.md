@@ -1,6 +1,7 @@
 ---
 title: "Researching a village the internet forgot"
 date: 2026-06-02 09:00:00 -0700
+summary: "What an LLM helped me find about my family's village in Palestine: a 1145 Crusader land grant in the Vatican manuscripts, a 1268 Mamluk waqf written in recognizable Arabic, a Roman sarcophagus carved with Bacchus and the seasons — and the prompting moves that surfaced them. The internet hadn't forgotten Turmus Ayya. It had just filed it under names I didn't know yet."
 ---
 
 There is a village north of Ramallah called Turmus Ayya. My family is from there. Wikipedia gives it a handful of paragraphs and the usual census stub. I wanted more — not for a paper, not for a project, just for myself. So I sat down one evening with a language model and asked it to help me dig.
