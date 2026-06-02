@@ -1,0 +1,49 @@
+# Site
+title: mumen musa
+tagline: A working journal.
+description: >-
+  Research, builds, things I'm thinking through. Mostly for future-me.
+author: Mumen Musa
+email: # add if you want a mailto in the footer
+url: "https://mumenmusa.github.io"
+baseurl: ""
+
+# Build
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: highlight
+    block:
+      line_numbers: false
+permalink: /:year/:month/:day/:title/
+timezone: America/Los_Angeles
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Feed
+feed:
+  path: feed.xml
+
+# Collections / defaults
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+
+# Exclusions
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .bundle
+  - README.md
+  - .ruby-version
+  - "*.gemspec"

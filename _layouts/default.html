@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if page.title %}{{ page.title | escape }} · {{ site.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+<link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
+{% seo %}
+</head>
+<body>
+<div class="wrap">
+
+<header class="site">
+  <a class="brand" href="{{ '/' | relative_url }}">mumenmusa</a>
+  <nav>
+    <a href="{{ '/' | relative_url }}">writing</a>
+    <a href="{{ '/about/' | relative_url }}">about</a>
+  </nav>
+</header>
+
+{{ content }}
+
+<footer class="site">
+  <span>mumenmusa.github.io</span>
+  <span>built with <span class="heart">♥</span> &amp; jekyll</span>
+</footer>
+
+</div>
+</body>
+</html>
