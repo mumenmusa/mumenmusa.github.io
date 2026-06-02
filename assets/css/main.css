@@ -32,7 +32,7 @@ body {
 .wrap { max-width: 660px; margin: 0 auto; padding: 64px 28px 120px; }
 
 /* Header */
-header.site { padding-bottom: 32px; border-bottom: 1px dashed var(--rule); margin-bottom: 56px; overflow: hidden; }
+  header.site { padding-bottom: 20px; border-bottom: 1px dashed var(--rule); margin-bottom: 24px; overflow: hidden; }
 header.site .brand { font-size: 14px; color: var(--ink); text-decoration: none; letter-spacing: -0.01em; float: left; }
 header.site .brand::before { content: "$ "; color: var(--accent); }
 header.site .brand::after { content: "_"; color: var(--accent); animation: blink 1.2s infinite; }
@@ -43,7 +43,7 @@ header.site nav a:hover { color: var(--accent); }
 header.site nav a::before { content: "/"; color: var(--rule); margin-right: 2px; }
 
 /* Intro */
-.intro { color: var(--ink-soft); font-style: italic; margin-bottom: 56px; max-width: 480px; font-size: 16px; font-family: "Iowan Old Style", Charter, Georgia, ui-serif, serif; }
+.intro { color: var(--ink-soft); font-style: italic; margin: 0 0 40px 0; max-width: 480px; font-size: 16px; font-family: "Iowan Old Style", Charter, Georgia, ui-serif, serif; }
 
 /* Post index — summary list */
 .post-index { list-style: none; padding: 0; margin: 0 0 72px 0; }
