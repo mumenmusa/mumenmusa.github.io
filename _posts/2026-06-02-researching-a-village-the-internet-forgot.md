@@ -6,7 +6,7 @@ summary: "What an LLM helped me find about my family's village in Palestine: a 1
 
 There is a village north of Ramallah called Turmus Ayya. My family is from there. Wikipedia gives it a handful of paragraphs and the usual census stub. I wanted more — not for a paper, not for a project, just for myself. So I sat down one evening with a language model and asked it to help me dig.
 
-What follows is the process, and a few of the things it turned up. The full report runs twenty-four pages. This is the part I think is worth writing down.
+What follows is the process, and a few of the things it turned up. The full report runs [twenty-four pages]({{ '/assets/reports/turmus-ayya-comprehensive-report.pdf' | relative_url }}). This is the part I think is worth writing down.
 
 ## The first prompt
 
@@ -24,7 +24,7 @@ The name had been sitting in a footnote for a hundred and forty years.
 
 ## What the research actually turned up
 
-The model produced a 24-page comprehensive report. Here are the findings that surprised me most.
+The model produced a [24-page comprehensive report]({{ '/assets/reports/turmus-ayya-comprehensive-report.pdf' | relative_url }}). Here are the findings that surprised me most.
 
 **The 1145 grant has a sequel.** Thirty years later, on **17 October 1175**, the same two institutions met again. This time the Holy Sepulchre got the church back — along with the half-tithe rights to St. Gilles, *Turbasaym*, and *Dere*. The reciprocal act from Mount Tabor also mentions *vineas vero et domos*, "vineyards and houses," sold for a sum in bezants. So the ecclesiastical presence was not just a fiscal abstraction. There were physical houses and vineyards owned by the Latin Church in or near my village in 1175.
 
