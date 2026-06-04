@@ -27,5 +27,33 @@
 </footer>
 
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>
+  (function () {
+    if (typeof mermaid === "undefined") return;
+    mermaid.initialize({ startOnLoad: false, securityLevel: "loose", theme: "default" });
+    function init() {
+      // kramdown emits <pre><code class="language-mermaid">...</code></pre>;
+      // mermaid.js wants <pre class="mermaid">...</pre>. Convert in place.
+      var blocks = document.querySelectorAll("pre > code.language-mermaid");
+      blocks.forEach(function (code) {
+        var pre = code.parentElement;
+        var mermaidPre = document.createElement("pre");
+        mermaidPre.className = "mermaid";
+        mermaidPre.textContent = code.textContent;
+        pre.replaceWith(mermaidPre);
+      });
+      if (blocks.length) {
+        try { mermaid.run(); } catch (e) { console.error("mermaid.run failed:", e); }
+      }
+    }
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", init);
+    } else {
+      init();
+    }
+  })();
+</script>
 </body>
 </html>
