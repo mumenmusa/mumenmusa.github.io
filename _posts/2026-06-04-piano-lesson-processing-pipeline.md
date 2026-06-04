@@ -4,8 +4,6 @@ date: 2026-06-03 13:00:00 -0700
 summary: "From a Microsoft Teams recording to a dated folder of transcripts, subtitles, and summaries — ffmpeg, WhisperX, pyannote, Claude, and a watcher cron that runs itself. No manual steps after the file lands."
 ---
 
-# How I built a self-running pipeline for our piano lessons
-
 *From a Microsoft Teams recording to a dated folder of transcripts, subtitles, and summaries — with no manual steps after the file lands.*
 
 Every week, the boys in our house take piano lessons over Microsoft Teams. Every week, I want a permanent searchable record of what was taught. The free tier of Teams doesn't record, and the paid tier is a few dollars a month I didn't want to add to the household budget. So I started recording the screen with OBS. That was the workaround. Then I started keeping the files. Then I started running them through a transcription pipeline. Then I started diarizing them so the transcript knew who was speaking. Then I started generating a structured summary at the top of each one. The pipeline that resulted is self-running: I drop a new recording into a watched folder, the next hour the pipeline processes it, and a few hours later I have a transcript, subtitles, a speaker map, and a lesson summary, all in a dated subfolder, all searchable.
