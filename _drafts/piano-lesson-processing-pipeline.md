@@ -4,7 +4,11 @@ date: 2026-06-03 13:00:00 -0700
 summary: "From a Microsoft Teams recording to a dated folder of transcripts, subtitles, and summaries — ffmpeg, WhisperX, pyannote, Claude, and a watcher cron that runs itself. No manual steps after the file lands."
 ---
 
-Every week, the kids in our house take piano lessons over Microsoft Teams. Every week, I want a permanent searchable record of what was taught. The free tier of Teams doesn't record, and the paid tier is a few dollars a month I didn't want to add to the household budget. So I started recording the screen with OBS. That was the workaround. Then I started keeping the files. Then I started running them through a transcription pipeline. Then I started diarizing them so the transcript knew who was speaking. Then I started generating a structured summary at the top of each one. The pipeline that resulted is self-running: I drop a new recording into a watched folder, the next hour the pipeline processes it, and a few hours later I have a transcript, subtitles, a speaker map, and a lesson summary, all in a dated subfolder, all searchable.
+# How I built a self-running pipeline for our piano lessons
+
+*From a Microsoft Teams recording to a dated folder of transcripts, subtitles, and summaries — with no manual steps after the file lands.*
+
+Every week, the boys in our house take piano lessons over Microsoft Teams. Every week, I want a permanent searchable record of what was taught. The free tier of Teams doesn't record, and the paid tier is a few dollars a month I didn't want to add to the household budget. So I started recording the screen with OBS. That was the workaround. Then I started keeping the files. Then I started running them through a transcription pipeline. Then I started diarizing them so the transcript knew who was speaking. Then I started generating a structured summary at the top of each one. The pipeline that resulted is self-running: I drop a new recording into a watched folder, the next hour the pipeline processes it, and a few hours later I have a transcript, subtitles, a speaker map, and a lesson summary, all in a dated subfolder, all searchable.
 
 This post is about how I built it, what the pieces are, and what it has already surfaced from the lessons I record.
 
@@ -194,19 +198,19 @@ I have ~17 hours of audio in the archive now. Reading back through the summaries
 
 **The offhand mention.** The teacher once told one of the students, mid-lesson, that her husband was home recovering from open-heart surgery. She said it in passing, the way an adult tells a child something they think a child can hold. He didn't say anything back. They went back to the piece. I was in the room when it happened. I had forgotten it. The transcript remembered. That is what diarization and a dated transcript are for — they are the only reason I know the moment happened at all.
 
-**The 38-minute lesson.** The younger kid had a lesson that ran almost 40 minutes — twice the normal length — because he got frustrated with a piece and refused to play. The teacher didn't push. She sat with him. She let him try, let him fail, let him try again. The summary captured, in its own words, that the student experienced frustration, the teacher used patience, and the piece was eventually completed. That is what happened. The transcript is the only reason I know the texture of how that lesson actually went.
+**The 38-minute lesson.** The younger boy had a lesson that ran almost 40 minutes — twice the normal length — because he got frustrated with a piece and refused to play. The teacher didn't push. She sat with him. She let him try, let him fail, let him try again. The summary captured, in its own words, that the student experienced frustration, the teacher used patience, and the piece was eventually completed. That is what happened. The transcript is the only reason I know the texture of how that lesson actually went.
 
-**The older kid coaching the younger one.** The older kid has been playing longer. In one of the younger kid's lessons, after the teacher explained the sharp-within-measure rule, the older kid was at the piano before the next call and walked the younger one through it himself. The summary noted that the older sibling provided peer instruction during an inter-lesson period and demonstrated an internalized grasp of the rule. I would not have written that sentence in a thousand years. The model surfaced it because diarization caught a third voice during what was supposed to be a one-on-one lesson. I had no idea it was happening. The model did.
+**The older boy coaching the younger one.** The older boy has been playing longer. In one of the younger boy's lessons, after the teacher explained the sharp-within-measure rule, the older boy was at the piano before the next call and walked the younger one through it himself. The summary noted that the older sibling provided peer instruction during an inter-lesson period and demonstrated an internalized grasp of the rule. I would not have written that sentence in a thousand years. The model surfaced it because diarization caught a third voice during what was supposed to be a one-on-one lesson. I had no idea it was happening. The model did.
 
 **"Rockin' Rabbits."** One of the first pieces in the book is called "Rockin' Rabbits." The model — at least in early runs — kept hearing it as "Rockin' Rabies." A five-year-old saying the word "rabbits" produces audio the model is not confident about, and its first guess was a different small animal entirely. I have at least four transcripts in a row that all say "Rockin' Rabies." It became a family joke. The model got it wrong consistently enough that the wrongness became a record in its own right — a small data point on what a five-year-old's voice sounds like to a model trained mostly on adult speech.
 
 ## What the model still gets wrong
 
-The archive is not the lessons. It is an approximation of the lessons. The model still mishears proper names on the first run about a third of the time. When two students play the same phrase in unison, diarization merges their voices and assigns the line to one speaker. The summaries smooth over small moments — a teacher telling a kid to sit up, a parent gently correcting which kid actually needed to sit up — because the model averages across many small choices, and the right one is in the average, but not the one it picks.
+The archive is not the lessons. It is an approximation of the lessons. The model still mishears proper names on the first run about a third of the time. When two students play the same phrase in unison, diarization merges their voices and assigns the line to one speaker. The summaries smooth over small moments — a teacher telling a boy to sit up, a parent gently correcting which boy actually needed to sit up — because the model averages across many small choices, and the right one is in the average, but not the one it picks.
 
 I have to keep remembering that. The temptation to treat the transcript as authoritative is the new version of believing the camera saw the truth. The camera didn't see the truth. The transcript isn't the lesson. Both are flattened versions of something that happened between a few people in a room with a piano. The archive is a record that the lesson happened. It is not a record of what the lesson was.
 
-But a record that the lesson happened is enough. It is more than I had before. It is more than the average family has when their kids are grown.
+But a record that the lesson happened is enough. It is more than I had before. It is more than the average family has when their boys are grown.
 
 ## What's next
 
@@ -214,6 +218,6 @@ The current pipeline is enough. It runs itself, the lessons are searchable in a 
 
 - **Voice fingerprinting.** Replace the vocabulary heuristic with voiceprint ID. Once the teacher, parent, and each student have a stable voiceprint, diarization labels speakers directly without scoring their text. This would clean up the 10% mislabel rate.
 - **Cross-lesson search.** The transcripts are `.txt` files. A simple ripgrep across all dated folders answers questions like "when did harmonic intervals come up." A proper search index (SQLite FTS or Meilisearch) would make this faster and more flexible.
-- **Per-lesson practice notes.** A second pass that produces a short note aimed at the student, summarizing what was learned and what to work on, in language a kid can read.
+- **Per-lesson practice notes.** A second pass that produces a short note aimed at the student, summarizing what was learned and what to work on, in language a boy can read.
 
 The pipeline is the goal. Everything after that is polish.
