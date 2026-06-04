@@ -1,6 +1,6 @@
 ---
 title: "How I built a self-running pipeline for our piano lessons"
-date: 2026-06-04 03:48:39 -0700
+date: 2026-06-03 13:00:00 -0700
 summary: "From a Microsoft Teams recording to a dated folder of transcripts, subtitles, and summaries — ffmpeg, WhisperX, pyannote, Claude, and a watcher cron that runs itself. No manual steps after the file lands."
 ---
 
@@ -195,8 +195,6 @@ On Apple Silicon, the `small` Whisper model:
 ## What the system has already surfaced
 
 I have ~17 hours of audio in the archive now. Reading back through the summaries, the transcripts surface things the videos alone never would have. A few worth flagging:
-
-**The offhand mention.** The teacher once told one of the students, mid-lesson, that her husband was home recovering from open-heart surgery. She said it in passing, the way an adult tells a child something they think a child can hold. He didn't say anything back. They went back to the piece. I was in the room when it happened. I had forgotten it. The transcript remembered. That is what diarization and a dated transcript are for — they are the only reason I know the moment happened at all.
 
 **The 38-minute lesson.** Z.M. had a lesson that ran almost 40 minutes — twice the normal length — because he got frustrated with a piece and refused to play. The teacher didn't push. She sat with him. She let him try, let him fail, let him try again. The summary captured, in its own words, that the student experienced frustration, the teacher used patience, and the piece was eventually completed. That is what happened. The transcript is the only reason I know the texture of how that lesson actually went.
 
